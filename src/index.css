@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
 
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -26,7 +29,7 @@ body {
     url('bg-pattern-dark.png');
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+  min-height: 110rem;  
 }
 
 header {
@@ -336,6 +339,7 @@ ol {
 }
 
 /* Fancy animation for showing the "Game Over" element */
+
 @keyframes pop-in {
   0% {
     transform: scale(0);
@@ -347,5 +351,93 @@ ol {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+
+/* ------------------------- */
+
+/* Media Query for Devices with a Maximum Width of 768px (Tablets) */
+@media (max-width: 768px) {
+  /* Center the game board */
+  #game-container {
+    width: 90%;  /* Make the game container more flexible */
+    padding: 1rem;
+  }
+
+  #players {
+    flex-direction: column;  /* Stack player names vertically */
+    gap: 1rem;
+  }
+
+  #players li {
+    width: 100%;  /* Make player name sections take up full width */
+    text-align: center;
+  }
+
+  /* Adjust the game board for smaller screens */
+  #game-board {
+    grid-template-columns: repeat(3, 1fr); /* Ensure 3 columns on smaller screens */
+    gap: 1rem;
+  }
+
+  #game-board button {
+    width: 6rem;  /* Smaller buttons for mobile */
+    height: 6rem;
+    font-size: 3rem;  /* Adjust font size for mobile */
+    padding: 1rem;
+  }
+
+  /* Adjust the size of the player name inputs */
+  .player input {
+    width: 100%;  /* Make player input take full width */
+  }
+
+  /* Game Over Modal adjustments */
+  #game-over h2 {
+    font-size: 3rem;  /* Slightly smaller text for mobile */
+  }
+
+  #game-over p {
+    font-size: 1.5rem;  /* Adjust text size */
+  }
+}
+
+/* Media Query for Devices with a Maximum Width of 480px (Small Phones) */
+@media (max-width: 480px) {
+  /* Adjust the game container to take up most of the screen */
+  #game-container {
+    width: 95%;
+    padding: 0.5rem;
+  }
+
+  /* Further tweak the size of buttons and the grid */
+  #game-board button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+  }
+
+  #game-board {
+    grid-template-columns: repeat(3, 1fr);  /* Ensure the 3 columns layout on small screens */
+  }
+
+  /* Adjust player names and inputs to be mobile-friendly */
+  .player-name, .player-symbol {
+    font-size: 1rem;
+  }
+
+  .player input {
+    font-size: 1.2rem;  /* Increase input font size for better visibility */
+    width: 100%;
+  }
+
+  /* Adjust the game over modal for smaller screens */
+  #game-over h2 {
+    font-size: 2.5rem;
+  }
+
+  #game-over p {
+    font-size: 1.3rem;
   }
 }
